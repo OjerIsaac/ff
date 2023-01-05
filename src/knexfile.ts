@@ -1,10 +1,10 @@
 import mysql from 'mysql';
 
 const config = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'food_court'
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE
 });
 
 export default config;
