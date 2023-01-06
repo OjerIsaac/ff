@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { Knex } from 'knex';
 
+console.log("Service connected to" + process.env.MYSQL_DB + "successfully");
+
 const config: { [key: string]: Knex.Config } = {
   development: {
     client: 'mysql',

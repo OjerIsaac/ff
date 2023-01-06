@@ -105,4 +105,4 @@ dist
 
 # Miscellaneous
 db-mysql.ts
-users.ts
+/users.ts
