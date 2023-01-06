@@ -23,7 +23,9 @@ This is a backend app for food court powered by Nodejs, Express and TS
 - `cp .env.sample .env`
 - Run the server in dev env
 - `npm run dev`
-- To run the service in production env
-- `yarn build && yarn start`
+- Get list of command to run Knexjs
+- `npm run knex:run`
+- Create Migration file
+- `npm run migrate:make <name-of-migration>`
 
 ## Documentation link

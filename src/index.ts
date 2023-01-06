@@ -2,19 +2,9 @@ import dotenv from 'dotenv';
 dotenv.config(); // load env variables
 import 'reflect-metadata';
 import app from './app';
-import config from './db-mysql';
 
 (async () => {
     try {
-        // connect to db
-        config.connection.connect(function(err) {
-            if (err) {
-              return console.error('error: ' + err.message);
-            }
-          
-            console.log('Connected to the MySQL server.');
-        });
-
         const port = Number(process.env.PORT) || 2020;
 
         // spin up the server
