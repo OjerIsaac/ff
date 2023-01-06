@@ -9,7 +9,7 @@ This is a backend app for food court powered by Nodejs, Express and TS
 ## Features
 - Completely written in [Typescript](https://typescriptlang.org/)
 - [Express](https://expressjs.com/) Nodejs framework
-- [MySQL](https://dev.mysql.com/doc/) Open source database
+- [PostgreSQL](https://www.postgresql.org/docs/) Open Source Relational Database
 - [Objection.js](https://vincit.github.io/objection.js/) SQL ORM for Nodejs
 - [Knexjs](https://knexjs.org/) SQL query builder
 

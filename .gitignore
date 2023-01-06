@@ -104,5 +104,4 @@ dist
 .tern-port
 
 # Miscellaneous
-db-mysql.ts
-/users.ts
+mysql-version
