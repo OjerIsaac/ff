@@ -75,8 +75,9 @@ export const getAllMeal = async (req: Request, res: Response) => {
   try {
     const { brandId } = req.params;
 
-    // check for duplicates
-    return successResponse(res, "All Meals retrieved successfully", {});
+    const meals = await Meal.query().select().where('brandId', brandId)
+
+    return successResponse(res, "All Meals retrieved successfully", { ...meals });
   } catch (error) {
     console.log(error);
     return errorResponse(res, httpErrors.ServerError, "Something went wrong");
