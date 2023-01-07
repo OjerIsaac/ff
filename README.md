@@ -30,3 +30,4 @@ This is a backend app for food court powered by Nodejs, Express and TS
 - `npm run dev`
 
 ## Documentation link
+- [Postman Documentation] (https://documenter.getpostman.com/view/25225100/2s8Z75S9ar)
