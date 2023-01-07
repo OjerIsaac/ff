@@ -97,7 +97,7 @@ export const getOneMeal = async (req: Request, res: Response) => {
 
     const meal = await Meal.query().select().where({ 'brandId' : brandId, 'id': addonId})
     // skipundefined(); - method to ignore the undefined values
-    
+
     return successResponse(res, "Meal retrieved successfully", { ...meal });
   } catch (error) {
     console.log(error);
@@ -114,11 +114,21 @@ export const getOneMeal = async (req: Request, res: Response) => {
  */
 export const updateMeal = async (req: Request, res: Response) => {
   try {
-    const { brandId } = req.params;
+    const { brandId, addonId } = req.params;
     const { name, description, price, category } = req.body;
 
-    // check for duplicates
-    return successResponse(res, "Meal updated successfully", {});
+    const updateMeal = await Meal.query().where({ 'brandId' : brandId, 'id': addonId}).update({ 
+      name: name, 
+      description: description, 
+      price: price, 
+      category: category
+    })
+
+    if(!updateMeal) {
+      return errorResponse(res, httpErrors.InvalidParameter, 'Meal could not be updated, please check the ID and try again');
+    }
+
+    return successResponse(res, "Meal updated successfully", {  });
   } catch (error) {
     console.log(error);
     return errorResponse(res, httpErrors.ServerError, "Something went wrong");
