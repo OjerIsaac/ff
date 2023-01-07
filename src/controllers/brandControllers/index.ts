@@ -143,10 +143,11 @@ export const updateMeal = async (req: Request, res: Response) => {
  */
 export const deleteMeal = async (req: Request, res: Response) => {
   try {
-    const { brandId } = req.params;
+    const { brandId, addonId } = req.params;
 
-    // check for duplicates
-    return successResponse(res, "Meal successfully deleted", {});
+    const meal = await Meal.query().where({ 'brandId' : brandId, 'id': addonId}).del()
+    
+    return successResponse(res, "Meal successfully deleted", {  });
   } catch (error) {
     console.log(error);
     return errorResponse(res, httpErrors.ServerError, "Something went wrong");
