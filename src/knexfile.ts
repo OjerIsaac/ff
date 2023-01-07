@@ -8,11 +8,10 @@ const config: { [key: string]: Knex.Config } = {
   development: {
     client: 'pg',
     connection: {
-      insecureAuth: true,
-      host: process.env.POSTGRES_HOST,
-      user: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB,
+      host: 'localhost',
+      user: 'ejiro',
+      password: '123',
+      database: 'foodCourtDb'
     },
     migrations: {
       extension: 'ts',

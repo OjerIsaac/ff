@@ -21,7 +21,7 @@ async function createMealsTable(knex: Knex, table: Knex.CreateTableBuilder) {
   table.string('name').notNullable();
   table.string('description').notNullable();
   table.string('price').notNullable();
-  table.string('caategory').notNullable();
+  table.string('category').notNullable();
   table.integer('brandId').unsigned().references('brands.id');
   table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
   table.timestamp('updated_at').defaultTo(knex.fn.now()).notNullable();

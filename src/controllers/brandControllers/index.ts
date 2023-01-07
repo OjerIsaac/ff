@@ -1,6 +1,39 @@
 import { Request, Response } from "express";
+import { Meal, Brand } from '../../models/users';
 import { errorResponse, successResponse } from "../../utils/lib/response";
 import httpErrors from "../../utils/constants/httpErrors";
+
+/**
+ * @description Add a new brand
+ * @param req Request object
+ * @param res Response object
+ * @returns ErrorResponse | SuccessResponse
+ */
+export const addBrand = async (req: Request, res: Response) => {
+  try {
+    const { name } = req.body;
+
+    // check for duplicates
+    const brand = await Brand.query().select().where('name', name)
+    // .debug();
+    
+    if(brand.length > 0) {
+      return errorResponse(res, httpErrors.AccountExists, "This brand already exists.")
+    }
+
+    // create new brand
+    const newBrand = {
+      name: name
+    };
+    
+    await Brand.query().insert(newBrand);
+
+    return successResponse(res, "New Brand added successfully", { newBrand });
+  } catch (error) {
+    console.log(error);
+    return errorResponse(res, httpErrors.ServerError, "Something went wrong");
+  }
+};
 
 /**
  * @description create a new meal addon
@@ -14,7 +47,25 @@ export const createNewMeal = async (req: Request, res: Response) => {
     const { name, description, price, category } = req.body;
 
     // check for duplicates
-    return successResponse(res, "New Meal created successfully", {});
+    // const meal = await knex('meals').select().where('name', name);
+    // if(meal) {
+    //   return errorResponse(res, httpErrors.AccountExists, "This meal already exists.")
+    // }
+
+    // create new meal
+    const newMeal = {
+      name: name, 
+      description: description, 
+      price: price, 
+      category: category, 
+      brandId: brandId
+    };
+    
+    await Meal.query().insert(newMeal);
+
+    // await Meal.query().insert({ name: name, description: description, price: price, category: category, brandId: brandId }).returning('*');
+
+    return successResponse(res, "New Meal created successfully", {  });
   } catch (error) {
     console.log(error);
     return errorResponse(res, httpErrors.ServerError, "Something went wrong");
