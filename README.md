@@ -4,7 +4,7 @@ This is a backend app for food court powered by Nodejs, Express and TS
 ## Requirements
 - NodeJS runtime
 - NPM or Yarn package manager
-- MySql Database
+- Postgres Database
 
 ## Features
 - Completely written in [Typescript](https://typescriptlang.org/)
@@ -21,9 +21,12 @@ This is a backend app for food court powered by Nodejs, Express and TS
 - `npm install`
 - Setup environment variable
 - `cp .env.sample .env`
-- Run the server in dev env
-- `npm run dev`
+- Fill in data for db (MySQL or Postgres)
 - Run Migration
 - `npm run migrate:latest`
+- To seed db
+- `npm run seed:run`
+- Run the server in dev env
+- `npm run dev`
 
 ## Documentation link
