@@ -46,12 +46,6 @@ export const createNewMeal = async (req: Request, res: Response) => {
     const { brandId } = req.params;
     const { name, description, price, category } = req.body;
 
-    // check for duplicates
-    // const meal = await knex('meals').select().where('name', name);
-    // if(meal) {
-    //   return errorResponse(res, httpErrors.AccountExists, "This meal already exists.")
-    // }
-
     // create new meal
     const newMeal = {
       name: name, 
@@ -63,9 +57,7 @@ export const createNewMeal = async (req: Request, res: Response) => {
     
     await Meal.query().insert(newMeal);
 
-    // await Meal.query().insert({ name: name, description: description, price: price, category: category, brandId: brandId }).returning('*');
-
-    return successResponse(res, "New Meal created successfully", {  });
+    return successResponse(res, "New Meal created successfully", { ...newMeal });
   } catch (error) {
     console.log(error);
     return errorResponse(res, httpErrors.ServerError, "Something went wrong");
