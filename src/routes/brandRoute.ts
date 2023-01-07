@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import {} from '../controllers/brand';
+import { createNewMeal } from '../controllers/brandControllers/index';
 
 export default (route: Router) => {
-    route.post('/brands/:brandId/addons');
+    route.post('/brands/:brandId/addons', createNewMeal);
     route.get('/brands/:brandId/addons');
     route.get('/brands/:brandId/addons/:addonId');
     route.put('/brands/:brandId/addons/:addonId');

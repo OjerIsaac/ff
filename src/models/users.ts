@@ -1,31 +1,45 @@
-// import { Model } from 'objection';
-// import knex from '../config/dbConfig';
+import * as Objection from 'objection';
 
-// Model.knex(knex);
-
-// // Users Class Service
-// export class Users extends Model {
-//     static get tableName() {
-//     return 'users';
-//     }
-//     static get jsonSchema() {
-//         return {
-//             type: 'object',
-//             required: ['email'],
-//             properties: {
-//                 id: { type: 'integer' },
-//                 name: { type: 'string' },
-//                 email: { type: 'string' },
-//                 password: { type: 'string' },
-//             }
-//         }
-//     }
-// }
-
-import { Model } from 'objection';
-
-export class User extends Model {
+export class User extends Objection.Model {
     static get tableName() {
-        return 'users';
+      return 'users';
+    }
+}
+
+export class Brand extends Objection.Model {
+    static get tableName(): string {
+      return 'brands';
+    }
+  
+    static get relationMappings(): Objection.RelationMappings {
+      return {
+        meals: {
+          relation: Objection.Model.HasManyRelation,
+          modelClass: 'Meal',
+          join: {
+            from: 'brands.id',
+            to: 'meals.brandId'
+          }
+        }
+      };
+    }
+}
+  
+export class Meal extends Objection.Model {
+    static get tableName(): string {
+      return 'meals';
+    }
+  
+    static get relationMappings(): Objection.RelationMappings {
+      return {
+        brands: {
+          relation: Objection.Model.BelongsToOneRelation,
+          modelClass: 'Brand',
+          join: {
+            from: 'meals.brandId',
+            to: 'brands.id'
+          }
+        }
+      };
     }
 }
