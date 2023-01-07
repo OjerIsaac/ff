@@ -93,10 +93,12 @@ export const getAllMeal = async (req: Request, res: Response) => {
  */
 export const getOneMeal = async (req: Request, res: Response) => {
   try {
-    const { brandId } = req.params;
+    const { brandId, addonId} = req.params;
 
-    // check for duplicates
-    return successResponse(res, "Meal retrieved successfully", {});
+    const meal = await Meal.query().select().where({ 'brandId' : brandId, 'id': addonId})
+    // skipundefined(); - method to ignore the undefined values
+    
+    return successResponse(res, "Meal retrieved successfully", { ...meal });
   } catch (error) {
     console.log(error);
     return errorResponse(res, httpErrors.ServerError, "Something went wrong");
