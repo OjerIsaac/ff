@@ -3,11 +3,11 @@ import { createNewMeal, getAllMeal, getOneMeal, updateMeal, deleteMeal, createNe
 import { adminAuth } from '../middleware/auth';
 
 export default (route: Router) => {
-    route.post('/brands/:brandId/addons', adminAuth, createNewMeal);
-    route.get('/brands/:brandId/addons', adminAuth, getAllMeal);
-    route.get('/brands/:brandId/addons/:addonId', adminAuth, getOneMeal);
-    route.put('/brands/:brandId/addons/:addonId', adminAuth, updateMeal);
-    route.delete('/brands/:brandId/addons/:addonId', adminAuth, deleteMeal);
-    route.post('/brands/:brandId/addon-categories', adminAuth, createNewMealCategory);
-    route.post('/brands/add-brand', adminAuth, addBrand);
+    route.post('/brands/:brandId/addons', createNewMeal);
+    route.get('/brands/:brandId/addons', getAllMeal);
+    route.get('/brands/:brandId/addons/:addonId', getOneMeal);
+    route.put('/brands/:brandId/addons/:addonId', updateMeal);
+    route.delete('/brands/:brandId/addons/:addonId', deleteMeal);
+    route.post('/brands/:brandId/addon-categories', createNewMealCategory);
+    route.post('/brands/add-brand', addBrand);
 }
