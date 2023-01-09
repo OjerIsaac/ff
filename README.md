@@ -30,5 +30,4 @@ This is a backend app for food court powered by Nodejs, Express and TS
 - `npm run dev`
 
 ## Documentation link
-- The endpoints for test of the service are provided in the Postman documentation.
-- [Postman Documentation](https://documenter.getpostman.com/view/25225100/2s8Z75S9ar)
+- The endpoints for test of the service are provided in the [Postman Documentation](https://documenter.getpostman.com/view/25225100/2s8Z75S9ar).
