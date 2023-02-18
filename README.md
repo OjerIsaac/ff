@@ -61,9 +61,16 @@ PAYLOAD DATA
 }
 ```
 
-### Create new meal
+### Get all meal
 
 GET
 ```shell
 http://localhost:2020/brands/3/addons
+```
+
+### Get one meal
+
+GET
+```shell
+http://localhost:2020/brands/3/addons/7
 ```
