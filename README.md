@@ -30,7 +30,7 @@ This is a backend app for food court powered by Nodejs, Express and TS
 - `npm run dev`
 
 ## Documentation
-# Add brand
+### Add brand
 
 POST
 ```shell
@@ -44,7 +44,7 @@ PAYLOAD DATA
 }
 ```
 
-# Create new meal
+### Create new meal
 
 POST
 ```shell
@@ -59,4 +59,11 @@ PAYLOAD DATA
     "price": "300",
     "category": "Breakfast"
 }
+```
+
+### Create new meal
+
+GET
+```shell
+http://localhost:2020/brands/3/addons
 ```
