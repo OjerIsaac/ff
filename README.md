@@ -74,3 +74,20 @@ GET
 ```shell
 http://localhost:2020/brands/3/addons/7
 ```
+
+### Update meal
+
+PUT
+```shell
+http://localhost:2020/brands/2/addons/8
+```
+PAYLOAD DATA
+
+```shell
+{
+    "name": "Bread & eggs",
+    "description": "Hot",
+    "price": "450",
+    "category": "Breakfast"
+}
+```
