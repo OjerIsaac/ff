@@ -91,3 +91,10 @@ PAYLOAD DATA
     "category": "Breakfast"
 }
 ```
+
+### Delete meal
+
+GET
+```shell
+http://localhost:2020/brands/2/addons/8
+```
