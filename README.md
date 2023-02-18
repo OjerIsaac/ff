@@ -30,3 +30,16 @@ This is a backend app for food court powered by Nodejs, Express and TS
 - `npm run dev`
 
 ## Documentation
+# Add brand
+
+POST
+```shell
+http://localhost:2020/brands/add-brand
+```
+PAYLOAD DATA
+
+```shell
+{
+    "name": "Cabin"
+}
+```
