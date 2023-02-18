@@ -1,4 +1,4 @@
-# FOOD COURT BACKEND DEVELOPER ASSESSMENT
+# FOOD COURT
 This is a backend app for food court powered by Nodejs, Express and TS
 
 ## Requirements
@@ -41,5 +41,22 @@ PAYLOAD DATA
 ```shell
 {
     "name": "Cabin"
+}
+```
+
+# Create new meal
+
+POST
+```shell
+http://localhost:2020/brands/2/addons
+```
+PAYLOAD DATA
+
+```shell
+{
+    "name": "Bread & eggs",
+    "description": "Hot",
+    "price": "300",
+    "category": "Breakfast"
 }
 ```
