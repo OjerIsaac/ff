@@ -94,7 +94,7 @@ PAYLOAD DATA
 
 ### Delete meal
 
-GET
+DELETE
 ```shell
 http://localhost:2020/brands/2/addons/8
 ```
